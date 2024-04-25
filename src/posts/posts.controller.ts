@@ -26,10 +26,7 @@ export class PostsController {
 
   @SetResponseMessage('Create a new post')
   @Post()
-  async create(
-    @Body() createPostDto: CreatePostDto,
-    @AuthUser() authUser: AuthUser,
-  ) {
+  async create(@Body() createPostDto: CreatePostDto, @AuthUser() authUser: AuthUser) {
     return this.postsService.create(createPostDto, authUser.id);
   }
 
@@ -51,10 +48,7 @@ export class PostsController {
 
   @SetResponseMessage('Update post')
   @Patch(':uuid')
-  async update(
-    @Param('uuid') uuid: string,
-    @Body() updatePostDto: UpdatePostDto,
-  ) {
+  async update(@Param('uuid') uuid: string, @Body() updatePostDto: UpdatePostDto) {
     return this.postsService.update(uuid, updatePostDto);
   }
 

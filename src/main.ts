@@ -1,11 +1,6 @@
-import {
-  ClassSerializerInterceptor,
-  ValidationPipe,
-  VersioningType,
-} from '@nestjs/common';
+import { ClassSerializerInterceptor, ValidationPipe, VersioningType } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { HttpAdapterHost, NestFactory, Reflector } from '@nestjs/core';
-import { useNestTreblle } from 'treblle';
 
 import { AppModule } from './app.module';
 import { ResponseFormatInterceptor } from './utils/response-format.interceptor';
@@ -29,10 +24,6 @@ async function bootstrap(): Promise<void> {
 
   const configService = app.get<ConfigService>(ConfigService);
   const expressInstance = app.getHttpAdapter().getInstance();
-  useNestTreblle(expressInstance, {
-    apiKey: configService.get<string>('TREBLLE_API_KEY'),
-    projectId: configService.get<string>('TREBLLE_PROJECT_ID'),
-  });
 
   await app.listen(3000);
 }

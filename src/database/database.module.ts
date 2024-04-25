@@ -22,10 +22,7 @@ import { SeedInitialUser1667911463021 } from './migrations/1667911463021-SeedIni
         database: configService.get<string>('DATABASE_NAME'),
         entities: [User, Post],
         synchronize: false,
-        migrations: [
-          CreateUsersPosts1666871115593,
-          SeedInitialUser1667911463021,
-        ],
+        migrations: [CreateUsersPosts1666871115593, SeedInitialUser1667911463021],
       }),
     }),
   ],

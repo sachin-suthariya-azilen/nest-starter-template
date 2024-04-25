@@ -1,13 +1,5 @@
 import { Expose } from 'class-transformer';
-import {
-  Entity,
-  Column,
-  PrimaryGeneratedColumn,
-  CreateDateColumn,
-  UpdateDateColumn,
-  Index,
-  OneToMany,
-} from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Index, OneToMany } from 'typeorm';
 
 import { Post } from '../../posts/entities/post.entity';
 
