@@ -23,10 +23,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 @SerializeOptions({ strategy: 'excludeAll' })
 @Controller('users')
 export class UsersController {
-  constructor(
-    private readonly usersService: UsersService,
-    private readonly postsService: PostsService,
-  ) {}
+  constructor(private readonly usersService: UsersService, private readonly postsService: PostsService) {}
 
   @SetResponseMessage('Create a new user')
   @Post()
@@ -52,10 +49,7 @@ export class UsersController {
 
   @SetResponseMessage('Update user')
   @Patch(':uuid')
-  async update(
-    @Param('uuid') uuid: string,
-    @Body() updateUserDto: UpdateUserDto,
-  ) {
+  async update(@Param('uuid') uuid: string, @Body() updateUserDto: UpdateUserDto) {
     await this.usersService.update(uuid, updateUserDto);
     return this.findOne(uuid);
   }

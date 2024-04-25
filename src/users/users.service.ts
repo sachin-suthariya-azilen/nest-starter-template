@@ -20,9 +20,7 @@ export class UsersService {
   ) {}
 
   async create(createUserDto: CreateUserDto) {
-    const hashedPassword = await this.hashingService.hashString(
-      createUserDto.password,
-    );
+    const hashedPassword = await this.hashingService.hashString(createUserDto.password);
     const newUser = this.usersRepository.create({
       ...createUserDto,
       uuid: uuid(),

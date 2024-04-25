@@ -15,18 +15,12 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async validateUser(
-    email: string,
-    password: string,
-  ): Promise<AuthUser | undefined> {
+  async validateUser(email: string, password: string): Promise<AuthUser | undefined> {
     const user = await this.usersService.findByEmail(email);
     if (!user) {
       return undefined;
     }
-    const isPasswordMatching = await this.hashingService.compareWithHashed(
-      password,
-      user.password,
-    );
+    const isPasswordMatching = await this.hashingService.compareWithHashed(password, user.password);
     if (!isPasswordMatching) {
       return undefined;
     }

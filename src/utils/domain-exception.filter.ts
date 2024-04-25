@@ -1,10 +1,4 @@
-import {
-  BadRequestException,
-  CallHandler,
-  ExecutionContext,
-  Injectable,
-  NestInterceptor,
-} from '@nestjs/common';
+import { BadRequestException, CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common';
 import { catchError, Observable } from 'rxjs';
 
 import { DuplicateUserException } from '../users/exceptions/duplicate-user.exception';

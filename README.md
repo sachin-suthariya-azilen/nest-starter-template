@@ -3,7 +3,7 @@
 </p> -->
 
 
-# Treblle's NestJS API boilerplate
+# NestJS API boilerplate
 
 ## Description
 
@@ -13,7 +13,6 @@ Using:
 - yarn
 - [NestJS](https://nestjs.com/)
 - [TypeORM](https://typeorm.io/) with [Postgres](https://www.postgresql.org/)
-- [Treblle](https://treblle.com/)
 - JWT Authentication
 
 ## Installation
@@ -23,7 +22,9 @@ yarn
 ```
 
 ## Setup
-Make sure you have Postgres database running, as well as your Treblle credentials. Here are the required environment variables for running this application. Add them to your `.env` file.
+Make sure you have Postgres database running Here are the required environment variables for running this application. Add them to your
+`.env` file.
+
 ```bash
 # Postgres details
 DATABASE_HOST=
@@ -40,9 +41,6 @@ INITIAL_USER_PASSWORD=
 # String secret for generating JWTs
 JWT_SECRET=
 
-# Treblle account information: treblle.com
-TREBLLE_API_KEY=
-TREBLLE_PROJECT_ID=
 ```
 
 ## Before running the app
@@ -90,4 +88,4 @@ Directory `src/database/migrations` is used for migrations by default.
 Don't forget to add your migrations into `DatabaseModule` after creating them, or else they won't be run!
 
 ## License
-Copyright 2022, Treblle Limited. [MIT licensed](LICENSE).
+Copyright 2022, [MIT licensed](LICENSE).

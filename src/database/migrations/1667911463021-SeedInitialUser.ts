@@ -18,9 +18,7 @@ export class SeedInitialUser1667911463021 implements MigrationInterface {
         uuid: uuid(),
         name: configService.get<string>('INITIAL_USER_NAME'),
         email: configService.get<string>('INITIAL_USER_EMAIL'),
-        password: await hashingService.hashString(
-          configService.get<string>('INITIAL_USER_PASSWORD'),
-        ),
+        password: await hashingService.hashString(configService.get<string>('INITIAL_USER_PASSWORD')),
       }),
     );
     appCtx.close();
@@ -30,11 +28,7 @@ export class SeedInitialUser1667911463021 implements MigrationInterface {
     const appCtx = await NestFactory.createApplicationContext(TypeORMCLIModule);
     const configService = appCtx.get(ConfigService);
 
-    await queryRunner.query(
-      `DELETE FROM "user" WHERE email='${configService.get<string>(
-        'INITIAL_USER_EMAIL',
-      )}';`,
-    );
+    await queryRunner.query(`DELETE FROM "user" WHERE email='${configService.get<string>('INITIAL_USER_EMAIL')}';`);
     appCtx.close();
   }
 }
